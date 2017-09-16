@@ -1,0 +1,6 @@
+{
+    "name": "EditNav",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./editnav.js"
+  }
