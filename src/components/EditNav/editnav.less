@@ -1,5 +1,7 @@
 .editnav {
     display: none;
+    position: relative;
+    
     &.show {
         z-index: 9;
         display: block;
@@ -9,5 +11,22 @@
         bottom: 0;
         left: 0;
         right: 0;
+    }
+    .title {
+        display: inline-block;
+        font-size: 0.5rem;
+    }
+    .viceTitle {
+        display: inline-block;
+        font-size: 0.3rem;
+    }
+    .edit {
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        font-size: 0.5rem;
+        color: #F81C1C;
+        border: #FC1B1B solid 3px;
+        border-radius: 6px;
     }
 }

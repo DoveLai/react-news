@@ -1,7 +1,7 @@
 import React from 'react';
 import './Nav.less';
 import classNames from 'classnames';
-import EditNav from '../EditNav';
+import EditNav from '../editnav';
 //import List from '../List';
 
 export default React.createClass({
@@ -18,14 +18,14 @@ export default React.createClass({
      */
     changeIdx(e, idx) {
 
-        this.setState(
-            { selectedIdx: idx.substr(idx.indexOf('$')+1) - 0 }
-        );
+        this.setState({ 
+            selectedIdx: idx.substr(idx.indexOf('$')+1) - 0 
+        })
     },
     changeEdit(e) {
-        this.setState(
-            { edited: true}
-        ) 
+        this.setState({ 
+            edited: true
+        }) 
     },
     closeEdit(e) {
         this.setState({
