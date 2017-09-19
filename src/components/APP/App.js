@@ -8,24 +8,23 @@ import List from '../List';
 
 export default React.createClass({
     render() {
-        const content = [
-            
-                "推荐"
-            ,
-                "健康"
-            ,
-                "热点"
-            ,
-                "汽车"
-            ,
-                "社会"
-            ,
-                "体育"
-            ,
-                "娱乐"
-            ,
-                "美食"
-            
+        const content = [{
+            text:"推荐"
+        },{
+            text:"健康"
+        },{
+            text:"热点"
+        },{
+            text:"汽车"
+        },{
+            text:"社会"
+        },{
+            text:"体育"
+        },{
+            text:"娱乐"
+        },{
+            text:"美食"
+        }
         ];
         const newsList = [
             {

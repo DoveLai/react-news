@@ -12,21 +12,85 @@
         left: 0;
         right: 0;
     }
-    .title {
-        display: inline-block;
-        font-size: 0.5rem;
+
+    
+
+    .myChannel {
+        .title {
+            display: inline-block;
+            font-size: 0.5rem;
+            padding: 0 0.2rem;
+        }
+        .viceTitle {
+            display: inline-block;
+            font-size: 0.3rem;
+        }
+        .edit {
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            font-size: 0.3rem;
+            color: #F81C1C;
+            border: #FC1B1B solid 3px;
+            border-radius: 6px;
+            padding: 0 0.2rem;
+            margin: 0 0.2rem;
+            
+        }
+        .myItem{
+            .cont {
+                .item {
+                    position: relative;
+                    display: inline-block;
+                    background-color: #e4e4e4;
+                    margin: 0.1rem 0.2rem;
+                    padding: 0 0.1rem;
+                    border-radius: 0.1rem;
+                    height: 1rem;
+                    line-height: 1rem;
+                    text-align: center;
+                    width: 1.9rem;
+                    
+                    .switch {
+                        display: none;
+                        &.show {
+                            display: inline-block;
+                            position: absolute;
+                            top: -19px;
+                            right: 0;
+                        }
+                    }
+                }
+            }
+        }
     }
-    .viceTitle {
-        display: inline-block;
-        font-size: 0.3rem;
-    }
-    .edit {
-        display: inline-block;
-        position: absolute;
-        right: 0;
-        font-size: 0.5rem;
-        color: #F81C1C;
-        border: #FC1B1B solid 3px;
-        border-radius: 6px;
+    .pro {
+        .title {
+            display: inline-block;
+            font-size: 0.5rem;
+            padding: 0 0.2rem;
+        }
+        .viceTitle {
+            display: inline-block;
+            font-size: 0.3rem;
+        }
+        .promItem{
+            .cont {
+                .item {
+                    display: inline-block;
+                    background-color: #e4e4e4;
+                    margin: 0.1rem 0.2rem;
+                    padding: 0 0.1rem;
+                    border-radius: 0.1rem;
+                    height: 1rem;
+                    line-height: 1rem;
+                    text-align: center;
+                    width: 1.9rem;
+                }
+                .item:before {
+                    content: "+";
+                }
+            }
+        }
     }
 }

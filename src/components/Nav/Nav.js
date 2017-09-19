@@ -37,7 +37,7 @@ export default React.createClass({
             return <li 
                     className={ classNames('item' ,{ 'cur': index == this.state.selectedIdx }) }  
                     onClick={ this.changeIdx } 
-                    key={ index }>{ item }</li>
+                    key={ index }>{ item.text }</li>
         })
         return(
             <section className="nav">
