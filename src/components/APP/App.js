@@ -8,24 +8,6 @@ import List from '../List';
 
 export default React.createClass({
     render() {
-        const content = [{
-            text:"推荐"
-        },{
-            text:"健康"
-        },{
-            text:"热点"
-        },{
-            text:"汽车"
-        },{
-            text:"社会"
-        },{
-            text:"体育"
-        },{
-            text:"娱乐"
-        },{
-            text:"美食"
-        }
-        ];
         const newsList = [
             {
                 title: "广州一村民",
@@ -47,7 +29,7 @@ export default React.createClass({
         return (
             <section className="news">
                     <Head />
-                    <Nav list= { content }/>
+                    <Nav />
                     <List list = { newsList }/>
             </section>
         );

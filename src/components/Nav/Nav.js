@@ -7,45 +7,87 @@ import EditNav from '../editnav';
 export default React.createClass({
     getInitialState() {
         return{
-            selectedIdx: 0,
-            edited: false
+            selectedId: 0,
+            edited: false,
+            myChannel: [{
+                text:"推荐"
+            },{
+                text:"健康"
+            },{
+                text:"热点"
+            },{
+                text:"汽车"
+            },{
+                text:"社会"
+            },{
+                text:"体育"
+            },{
+                text:"娱乐"
+            },{
+                text:"美食"
+            },{
+                text:"科技"
+            },{
+                text:"图片"
+            },{
+                text:"问答"
+            },{
+                text:"直播"
+            },{
+                text:"房产"
+            }],
         };
     },
+    
+    
     /**
      * 
-     * @param {*} e 事件
-     * @param {*} idx data-react-id末尾
+     * @param {*} channelData 子组件传回的编辑后列表
+     * @param {*} number 子组件传回的高亮项下标
+     * @param {*} e 
      */
-    changeIdx(e, idx) {
+    handleEdit(channelData,number,e) {
 
-        this.setState({ 
-            selectedIdx: idx.substr(idx.indexOf('$')+1) - 0 
-        })
+        if (this.state.edited == false) {
+            //this.myChannel = list;
+            this.setState({ 
+                edited: true,
+            }) 
+        } else {
+            
+            this.setState({
+                edited: false,
+                myChannel: channelData,
+                selectedId: number,
+            })
+        }
     },
-    changeEdit(e) {
-        this.setState({ 
-            edited: true
-        }) 
-    },
-    closeEdit(e) {
+    
+    handleId(idValue,e) {
         this.setState({
-            edited: false
+            selectedId: idValue,
         })  
     },
     render() {
-        const listItems = this.props.list.map((item, index) => {
-            return <li 
-                    className={ classNames('item' ,{ 'cur': index == this.state.selectedIdx }) }  
-                    onClick={ this.changeIdx } 
-                    key={ index }>{ item.text }</li>
-        })
         return(
             <section className="nav">
                 <ul className="nav-list">
-                    { listItems }
+                    { 
+                        this.state.myChannel.map((item, index) => {
+                    return <li 
+                    className={ classNames('item' ,{ 'cur': index == this.state.selectedId }) }  
+                    onClick={ e => {this.handleId(index,e) } }
+                    key={ index }>{ item.text }</li>
+                        }) 
+                    }
                 </ul>
-                <span className="icon" onClick={ this.changeEdit }>+</span>
-                <EditNav show={ this.state.edited } closeEdit={ this.closeEdit }/>
+                <span className="icon" onClick={ this.handleEdit }>+</span>
+                <EditNav show={ this.state.edited } exitEdit={ this.handleEdit }
+                list={ this.state.myChannel } 
+                
+                curId= { this.state.selectedId } 
+                
+                 />
             </section>
         ) 
     }

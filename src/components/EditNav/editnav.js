@@ -7,25 +7,9 @@ import classNames from 'classnames';
 export default React.createClass({
     getInitialState(){
         return({
-            contId: 0,
+            curId: this.props.curId,
+            myChannel: this.props.list,
             
-            myChannel: [{
-                text:"推荐"
-            },{
-                text:"健康"
-            },{
-                text:"热点"
-            },{
-                text:"汽车"
-            },{
-                text:"社会"
-            },{
-                text:"体育"
-            },{
-                text:"娱乐"
-            },{
-                text:"美食"
-            }],
             
             prom: [{
                 text: "小说"
@@ -45,6 +29,8 @@ export default React.createClass({
                 text: "养生"
             }],
             editText: "编辑",
+            viceTitleText: "点击进入频道",
+            
         });
     },
     editing: false,
@@ -53,11 +39,7 @@ export default React.createClass({
      * @param {*} e 点击事件
      * @param {*} id react-id=.0.1.$0
      */
-    changeContId(e,id) {
-        this.setState({
-            contId: id.split('$')[1] -0,
-        });
-    },
+    
     /**
          , * 
          , * @param {*} e 
@@ -88,14 +70,16 @@ export default React.createClass({
         if(!this.editing) //点击进入
         {
             this.setState({
-            
-            editText: "完成",  //修改文本
+                editText: "完成",  //修改文本
+                viceTitleText: "拖曳可以排序",
             });
             this.editing = true; //编辑状态
         } else {
             this.setState({
                     
-                editText: "编辑"
+                editText: "编辑",
+                viceTitleText: "点击进入频道",
+            
             });
             this.editing = false;
         }
@@ -121,27 +105,43 @@ export default React.createClass({
             });
             this.setState({
                 myChannel: contentAfterDeleted,
-                prom: promAfterAdd
+                prom: promAfterAdd,
+                curId: -1,
 
             })
+        } else //完成，点击进入频道
+        { 
+            let tempId = id.split('$')[1]-0;
+            this.setState({
+                curId: tempId,
+            });
+            this.props.exitEdit(this.state.myChannel,tempId,e);
         }
     },
     render() {
-        
+        const afterEditMyChan = this.state.myChannel.map((item)=>{
+            return item
+        })
         return(
             <section className={ classNames('editnav', { 'show': this.props.show }) }>
-                <div onClick={ this.props.closeEdit }>X</div>
+                <div onClick={ 
+                    e => {
+                        this.props.exitEdit(afterEditMyChan,this.state.curId,e)} //退出编辑，返回修改后的列表
+                        }>X</div>
                 <div className="myChannel">
                     <div className="title">我的频道</div>
-                    <div className="viceTitle">点击进入频道</div>
+                    <div className="viceTitle">{ this.state.viceTitleText }</div>
                     <div className={ classNames('edit') } 
                         onClick={ this.modifyOn }>{ this.state.editText }</div>
                     
                     <div className="myItem">
                         <ul className="cont">
                             { 
-                                this.state.myChannel.map((item, index) => {
-                                return <li className="item" key={ index }
+                                afterEditMyChan.map((item, index) => {
+                                return <li className={ classNames('item', 
+                                  {'cur': index == this.state.curId, 'editing': this.editing }
+                                )} 
+                                key={ index }
                                 onClick= { this.modifyCont }>
                                             { item.text }
                                             <span className={classNames('switch',{'show': this.editing})}
