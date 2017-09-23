@@ -1,6 +1,6 @@
 .editnav {
     display: none;
-    position: relative;
+    
     
     &.show {
         z-index: 9;
@@ -16,6 +16,7 @@
     
 
     .myChannel {
+        position: relative;
         .title {
             display: inline-block;
             font-size: 0.5rem;
@@ -35,7 +36,8 @@
             border-radius: 6px;
             padding: 0 0.2rem;
             margin: 0 0.2rem;
-            
+            line-height: 0.6rem;
+            height: 0.6rem;
         }
         .myItem{
             .cont {
@@ -61,7 +63,7 @@
                         &.show {
                             display: inline-block;
                             position: absolute;
-                            top: -19px;
+                            top: -0.4rem;
                             right: 0;
                         }
                     }
@@ -93,7 +95,8 @@
                     width: 1.9rem;
                 }
                 .item:before {
-                    content: "+";
+                    content: "+" ;
+                    font-size: 0.6rem;
                 }
             }
         }

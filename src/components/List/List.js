@@ -9,7 +9,7 @@ export default React.createClass({
                 <div className="listItem" key= { index }>
                     <h1 className="title">{ item.title }</h1>
                     <span className="author">{ item.author }</span>
-                    <span className="count">评论 { item.count }</span>
+                    <span className="count">评论{ item.count }</span>
                     <span className="time">{ item.time }</span>
                 </div>
             );
