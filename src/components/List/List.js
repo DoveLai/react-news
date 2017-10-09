@@ -1,18 +1,24 @@
 import React from 'react';
 import './List.less';
+import NormalList from '../normallist';
+import PromList from '../promlist';
 
 export default React.createClass({
+    renderNormalList(item,index) {
+        return <NormalList listItem = { item } key = { index }/>
+    },
     render() {
-        
-        const listItems = this.props.list.map((item,index) => {
-            return (
-                <div className="listItem" key= { index }>
-                    <h1 className="title">{ item.title }</h1>
-                    <span className="author">{ item.author }</span>
-                    <span className="count">评论{ item.count }</span>
-                    <span className="time">{ item.time }</span>
-                </div>
-            );
+        const list = this.props.list;
+        const listItems = list.map((item,index) => {
+            if (item.tab == 0) {
+                return (
+                    this.renderNormalList(item,index)
+                );
+            } else {
+                return (
+                    <PromList listItem={ item } key={ index }/>
+                )
+            }
         });
         return(
             <section className="list">

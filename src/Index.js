@@ -5,6 +5,7 @@ import FastClick from 'fastclick';
 import { Router, Route, IndexRoute } from 'react-router';
 import App from './components/APP';
 import Demo from './components/Demo';
+import ItemDetail from './components/itemdetail';
 
 window.React = React;
 
@@ -22,10 +23,10 @@ function bootstrap() {
 
     render(
         (<Router>
-            <Route path="/" component={App}>
-                <IndexRoute component={Demo} onEnter={redirectToChild}/>
+                <Route path="/" component={App} />
                 <Route path="/about" component={Demo} />
-            </Route>
+                <Route path="/listitem" component={ItemDetail}/>
+            
           </Router>), document.getElementById('react_container')
         );
 }
