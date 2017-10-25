@@ -1,22 +1,32 @@
 .normal {
+    display: inline-block;
     .listItem {
-        position: relative;
-        
-        .title {
-            font-size: 0.6rem;
-            margin: 0 0.3rem;
-        }
-        .author {
-            margin: 0 0.3rem;
-        }
-        .count {
-            display:inline-block;
-            width: 3rem;
-        }
-        .time {
-            position: absolute;
-            right: 0;
-            top: 0.9rem;
+        display: flex;
+        margin: 0.1rem 0.2rem;
+        .itemCont{
+            
+            flex: 1;
+            .title {
+                font-size: 0.6rem;
+                margin: 0 0.3rem;
+                color: #000;
+            }
+            .author {
+                margin: 0 0.3rem;
+            }
+            .count {
+                margin: 0 0.1rem;
+            }
+            .time {
+            
+            }
+        .img {
+            display: inline-block;
+            margin: 0 0.2rem;
+            height: 0.75rem;
+            width: 1rem;
+            }
         }
     }
+    
 }

@@ -5,6 +5,13 @@ import EditNav from '../editnav';
 //import List from '../List';
 
 export default React.createClass({
+    
+    /**
+     * @description 上下文 可用于跳转
+     */
+    contextTypes: {
+        history: React.PropTypes.object
+    },
     getInitialState() {
         return{
             selectedId: 0,
@@ -65,6 +72,7 @@ export default React.createClass({
      * @param {*} e 点击事件
      */
     handleEdit() {
+        //this.context.history.push({pathname: '/about', query: {id: 2}}); //用history 对象跳转，比link to 方便
         if (this.state.edited == false) {
             this.setState({ 
                 edited: true,

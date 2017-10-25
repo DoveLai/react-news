@@ -103,6 +103,11 @@ const config = {
           'postcss-loader',
         ],
       }, {
+        test: /\.css$/,
+        loaders: [
+          'css-loader',
+        ],
+      }, {
         test: /\.json$/,
         loader: 'json-loader',
       }, {
